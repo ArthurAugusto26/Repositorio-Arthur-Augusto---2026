@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo de Adivinhação</title>
+</head>
+<body>
+    <h2>Jogo de Adivinhação (1 a 10)</h2>
+
+    <input type="number" id="palpite" placeholder="Digite um número de 1 a 10">
+    <br><br>
+    <button onclick="verificarPalpite()">Tentar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        // Sorteia um número de 1 a 10
+        const numeroSorteado = Math.floor(Math.random() * 10) + 1;
+
+        function verificarPalpite() {
+            const palpite = parseInt(document.getElementById("palpite").value);
+            let mensagem;
+
+            if (palpite < 1 || palpite > 10 || isNaN(palpite)) {
+                mensagem = "Digite um número válido entre 1 e 10.";
+            } else if (palpite === numeroSorteado) {
+                mensagem = "🎉 Parabéns! Você acertou!";
+            } else {
+                mensagem = `❌ Você errou! O número era ${numeroSorteado}.`;
+            }
+
+            document.getElementById("resultado").innerText = mensagem;
+        }
+    </script>
+</body>
+</html>

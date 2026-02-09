@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Análise de Números</title>
+</head>
+<body>
+    <h2>Análise de um Array de Números</h2>
+
+    <button onclick="analisarNumeros()">Analisar números</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function analisarNumeros() {
+            // Array de números (você pode alterar)
+            const numeros = [10, 5, 8, 20, 3];
+
+            let maior = Math.max(...numeros);
+            let menor = Math.min(...numeros);
+
+            let soma = 0;
+            for (let i = 0; i < numeros.length; i++) {
+                soma += numeros[i];
+            }
+
+            let media = soma / numeros.length;
+
+            document.getElementById("resultado").innerHTML = `
+                Array: ${numeros.join(", ")} <br>
+                Maior número: ${maior} <br>
+                Menor número: ${menor} <br>
+                Média: ${media.toFixed(2)}
+            `;
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulação de Frase</title>
+</head>
+<body>
+    <h2>Manipulação de Frase</h2>
+
+    <input type="text" id="frase" placeholder="Digite uma frase" size="40">
+    <br><br>
+    <button onclick="analisarFrase()">Analisar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function analisarFrase() {
+            const frase = document.getElementById("frase").value;
+
+            // Remove espaços extras e divide a frase em palavras
+            const palavras = frase.trim().split(/\s+/);
+            const quantidadePalavras = frase.trim() === "" ? 0 : palavras.length;
+
+            const maiuscula = frase.toUpperCase();
+            const minuscula = frase.toLowerCase();
+
+            document.getElementById("resultado").innerHTML = `
+                Frase original: ${frase} <br>
+                Quantidade de palavras: ${quantidadePalavras} <br>
+                Frase em MAIÚSCULAS: ${maiuscula} <br>
+                Frase em minúsculas: ${minuscula}
+            `;
+        }
+    </script>
+</body>
+</html>
